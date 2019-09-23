@@ -1,0 +1,175 @@
+Modes: 
+
+Normal mode: Esc
+Insert mode: i (insert), a (append), c (change)
+Visual mode: v, V, <Ctrl-v>
+Command line mode: :, /
+
+Operators, text objects and motions
+
+Operators: 
+c: change (c) 
+d: delete(d) 
+y: yank into register (y)
+~: (swap case)
+gu: make lowercase
+gU: make uppercase 
+!: filter to external program
+<: shift left
+>: shift right
+=: indent
+
+Text objects: 
+
+aw: a word -> word + space
+iw: inner word -> just the word
+aW: a WORD
+iW: inner WORD
+ap: a paragraph
+ip: inner paragraph
+ab: a bracket
+ib: inner bracket
+at: a tag block
+it: inner tag block
+
+Motions: 
+%: got to first matching paren/bracket
+[count]+: down to first non-blank char of line
+[count]$: to end of line
+[count]f/F{char}: to next occurence of {char}
+[count]t/T{char}: to before next occurence of {char}
+[count]h/j/k/l: left, down, up or right
+[count]]m: Go to begining of next method
+[count]w/W: go a word/WORD to the right
+[count]b/B: go a word/WORD to the left
+[count]e/E:go to end of word/WORD right
+
+
+[count][operator][text object/motion]
+Examples: 
+6+ = 6x go down to line start
+gUaW = capitalize a WORD
+3ce = 3x change to word end
+4$ = 4x go to end of line
+d]m = delete to start of next method
+% = jump to match of next a paren or bracket
+
+Motions
+- Scroll Ctrl +
+u/d:  up/down
+y/e:  up/down slower
+b/f:  full screen up/down
+h/m/l: high, middle, low
+zz: place the cursor in the middle of the screen (moving screen, not cursor)
+zb/t: place the cursor at bottom/top of the screen 
+
+Editing: 
+!: e[dit] [++opt] [+cmd] {file}
+gf: go to file
+Ctrl-^: Switch buffer
+
+Search: <CR> = Enter
+/{patt} search for {patt}
+/<CR>: search for last used pattern 
+?{patt}[?]<CR>: search back for {patt}
+?<CR>: search back for last used pattern
+[count]n: repeat last search [count] times
+[count]N: same as above, opposite direction
+*: search forward for word under cursor
+#: same as above, opposite direction
+gd: go to local declaration
+:hls! toggle search highlighting
+
+Marks:
+m{a-zA-Z} sets a custom mark whose exact location can be accessed using `{mark}
+:marks shows all the current marks that are being used
+Special marks `. used for jumping to the last change 
+
+Jumplist
+Ctrl-O / Ctrl-I = Cycle through :jumps
+g; /g, = Cycle through :changes
+
+
+^Ra: Syntax highligting
+^Rz: second file
+
+Customization: 
+:set hls! : Don't highlight searches 
+:set number : line number
+
+
+====================================
+
+Vim as language
+
+Verbs: 
+d: delete
+c: change
+y: yank
+v: visually select
+
+Modifiers: 
+
+i: inside
+a: around
+NUM: number
+t: searches for something and stops before it
+f: searches for something and lands on it
+/: find a string (literal or regex)
+
+Nouns: -> Can be used as movements
+w: word
+s: sentence
+): sentence
+p: paragraph
+}: paragraph
+t: tag
+b: block 
+
+Some examples: 
+d2w: delete 2 words
+ct.: change to next . (the . can be replaced for anything)
+
+Basics on working with Files: 
+:w write
+:q quit
+:q! quit without changes
+:wq equivalent to ZZ 
+/[pattern] find [pattern]
+f[char] jump to the next [char] (land on it)
+t[char] jump to the next [char] (land before it)
+* search for other instance of the word under the cursor
+n go to next instance when you search
+N go to previous instance 
+; go to next instance when jumped to a char
+, go to prev instance when jumped to a char
+
+
+Moving around text: 
+j/k/h/l:  move down, up, left, righ 
+0: begining of the line
+$: end of the line 
+^: move to first non-blank char in line
+w: move a word
+b: move back one word
+e: move to end of the word
+W: same as w but ignoring delimiters within a string
+B: same as b but ignoring delimiters within a string
+): move forward one sentence
+}: move forward one paragraph
+
+Moving on the screen: 
+H: move to the top of the screen 
+M: move to middle of the screen 
+L: move to the bottom of the screen 
+gg: go to top of file
+G: go to bottom of file
+^U: move up half screen 
+^D: move down half screen 
+^F: page down
+^B: page up
+
+
+
+
+
